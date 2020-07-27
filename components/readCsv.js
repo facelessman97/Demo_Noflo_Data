@@ -29,7 +29,10 @@ exports.getComponent = () => {
         output.send({
           out: dataToSend 
         });
-      });    
+      });  
+    python.stderr.on('data', function (data) {
+			console.error(`stderr: ${data}`);
+		}); 
       output.done();
      
   });
